@@ -18,7 +18,7 @@ import (
 type Config struct {
 	LastfmAPIKey string      // [required]
 	LastfmPeriod string      // overall|7day|1month|3month|6month|12month. Default 7day
-	ImgSizePx    int         // One side of square album cover. Upscaling doesn't improve resolution. Default 174
+	ImgSizePx    int         // One side of square album cover. Upscaling doesn't improve resolution. Default 300
 	GridSize     int         // One side of tiled grid. Default 3
 	Logger       *log.Logger // Default to DevNull
 }
@@ -59,7 +59,6 @@ func MakeTiledGrid(c *Config, lastfmID string) (image.Image, error) {
 
 	gridTiles := c.GridSize * c.GridSize
 	sidePx := c.ImgSizePx * c.GridSize
-	lgr.Println("size ", sidePx, " grid ", gridTiles)
 	result, err := lastfmAPI.User.GetTopAlbums(
 		lastfm.P{"user": lastfmID, "period": c.LastfmPeriod, "limit": gridTiles})
 	if err != nil {
@@ -123,7 +122,7 @@ func (c *Config) validate() error {
 		c.GridSize = 3
 	}
 	if c.ImgSizePx <= 0 {
-		c.ImgSizePx = 174
+		c.ImgSizePx = 300
 	}
 	if c.Logger == nil {
 		c.Logger = log.New(os.NewFile(0, os.DevNull), "", 0)
