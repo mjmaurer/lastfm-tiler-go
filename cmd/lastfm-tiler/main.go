@@ -15,7 +15,7 @@ func main() {
 	lastfmKey := flag.String("lastfm-api-key", "", "[required] API key granted by a Lastfm app.")
 	lastfmChartPeriod := flag.String("lastfm-period", "7day", "Time period for charts. One of: overall|7day|1month|3month|6month|12month. (Default 7day)")
 	gridSize := flag.Int("grid-size", 3, "Size of one side of the tiled grid. (Default 3)")
-	imgSizePx := flag.Int("img-size-px", 174, "Size of one side of a square album cover. Upscaling does not improve resolution (Default 174)")
+	imgSizePx := flag.Int("img-size-px", 300, "Size of one side of a square album cover. Upscaling does not improve resolution (Default 300)")
 
 	flag.Parse()
 
