@@ -7,7 +7,7 @@ Library and CLI tool for generating tiled grids of albums fetched from a LastFM 
 ## As a Library
 `go get github.com/mjmaurer/lastfm-tiler-go`
 
-Then read the docs! (link above :smile:)
+Then read the docs! (link above)
 
 ## As a CLI command
 `go get github.com/mjmaurer/lastfm-tiler-go/cmd/lastfm-tiler`
