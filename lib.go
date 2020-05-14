@@ -1,4 +1,4 @@
-package lib
+package fmtile
 
 import (
 	"errors"
